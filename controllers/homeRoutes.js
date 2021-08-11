@@ -22,4 +22,12 @@ router.get('/artwork/:id', async (req, res) => {
       ... artwork
     });
   }
+});
+
+router.get('/cart', (req, res) => {
+
 })
+
+router.get('/login', (req, res) => {
+
+});
