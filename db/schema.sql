@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS artwork_db;
+CREATE DATABASE artwork_db;
