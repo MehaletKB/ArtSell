@@ -1,0 +1,16 @@
+<!-- Loop over each object in the projects array -->
+{{#each artworks as |artwork| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      {{!-- <a href="/artwork/{{artwork.id}}"> --}}
+      {{artwork.name}}
+      {{!-- </a> --}}
+    </h2>
+<img src="../Assets/{{artwork.name}}.jpg"> </img>
+
+    <p>Artist Name: {{artwork.artist}}</p>
+    <p>Price: {{artwork.price}}</p>
+  </div>
+</div>
+{{/each}}

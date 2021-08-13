@@ -5,21 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtSell</title>
-  <link rel="stylesheet" href="/css/jass.css">
+{{!-- TODO: include the correct style sheet --}}
   <link rel="stylesheet" href="/css/style.css">
 </head>
+
+{{!-- TODO: See  Controllers files, see utils files for initial routing info--}}
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
+        <a href="/">ArtSell</a>
       </h1>
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/gallery">gallery</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
