@@ -1,8 +1,8 @@
-const sequelize = require('../config/connection');
-const { User, Artwork } = require('../models');
+const sequelize = require("../config/connection");
+const { User, Artwork } = require("../models");
 
-const userData = require('./userData.json');
-const artworkData = require('./artworkData.json');
+const userData = require("./userData.json");
+const artworkData = require("./artworkData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,8 +13,10 @@ const seedDatabase = async () => {
   });
 
   for (const artwork of artworkData) {
+    // eslint-disable-next-line no-await-in-loop
     await Artwork.create({
       ...artwork,
+      // eslint-disable-next-line camelcase
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
