@@ -3,10 +3,14 @@ const router = require("express").Router();
 const { Artwork, User } = require("../models");
 
 router.get("/", async (req, res) => {
-  res.render("homepage", {
-    // eslint-disable-next-line camelcase
-    logged_in: req.session.logged_in,
-  });
+  try {
+    const readerData = await User.findAll({
+      include: [{ model: Artwork }],
+    });
+    res.status(200).json(readerData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/artwork/:id", async (req, res) => {
