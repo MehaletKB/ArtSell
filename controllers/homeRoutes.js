@@ -4,10 +4,10 @@ const { Artwork, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    const readerData = await User.findAll({
+    const userData = await User.findAll({
       include: [{ model: Artwork }],
     });
-    res.status(200).json(readerData);
+    res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
   }
