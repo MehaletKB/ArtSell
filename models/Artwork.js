@@ -15,6 +15,9 @@ Artwork.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    artist: {
+      type: DataTypes.STRING,
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
