@@ -24,7 +24,7 @@ Artwork.init(
       isNumeric: true,
       isDecimal: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
