@@ -9,11 +9,14 @@
       {{artwork.name}}
       {{!-- </a> --}}
     </h2>
-<img src="../Assets/{{artwork.name}}.jpg"> </img>
-
+    <img src="../Assets/{{artwork.img_name}}"> </img>
     <p>Artist Name: {{artwork.artist}}</p>
     <p>Price: {{artwork.price}}</p>
+{{!-- <p>Quantity: {{artwork.price}}</p> --}}
   </div>
+    <div class="col-md-4">
+      <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+    </div>
 </div>
 {{/each}}
 
@@ -23,6 +26,12 @@
 </div>
 
 {{!-- TODO: Create a "Submit Order" button --}}
+<div class="col-md-4">
+  <a href="/receipt"><button class="btn btn-sm btn-danger" data-id="{{post.id}}">Submit Order</button></a>
+</div>
+
 <div class="btn submit order">
   <a href="/receipt">Submit Order</a>
 </div>
+
+<script src="/js/cart.js"></script>
