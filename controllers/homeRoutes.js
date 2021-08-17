@@ -4,10 +4,16 @@ const { Artwork, User } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      include: [{ model: Artwork }],
+    const artworkData = await Artwork.findAll();
+
+    const galleries = artworkData.map((gallery) =>
+      gallery.get({ plain: true })
+    );
+    res.render("homepage", {
+      galleries,
+      loggedIn: req.session.loggedIn,
     });
-    res.status(200).json(userData);
+    res.status(200).json(artworkData);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -17,14 +23,7 @@ router.get("/artwork/:id", async (req, res) => {
   // if user is logged in , track their views
 
   try {
-    const artworkData = await Artwork.findByPk(req.params.id, {
-      inculde: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const artworkData = await Artwork.findByPk(req.params.id, {});
     const artwork = artworkData.get({ plain: true });
     res.render("artwork", {
       ...artwork,
@@ -55,5 +54,14 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
+// router. get cart
+router.get("/cart", (req, res) => {
+  res.render("cart");
+});
+
+// router. get recipt
+
+// router. put to update cart
 
 module.exports = router;
