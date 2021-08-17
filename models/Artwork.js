@@ -15,19 +15,29 @@ Artwork.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    artist: {
+      type: DataTypes.STRING,
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
       isNumeric: true,
       isDecimal: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
     },
+    // cartId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "cart",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
