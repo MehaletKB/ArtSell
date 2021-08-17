@@ -31,13 +31,6 @@ Artwork.init(
         key: "id",
       },
     },
-    // cartId: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "cart",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,
