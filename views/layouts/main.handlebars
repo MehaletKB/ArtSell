@@ -1,0 +1,7 @@
+
+const button = document.getElementById("checkout-button");
+button.addEventListener("click", () => { fetch("/cart", { method: "POST",
+headers: { "Content-Type": "application/json", }, // cart is an array of numbers
+from localstorage body: JSON.stringify({cart, user}), }) .then((res) => { if
+(res.status(200)) return res.json(); }) .then(({ url }) => { window.location =
+url; }) .catch(err) { console.log(err) }; });
