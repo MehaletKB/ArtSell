@@ -105,6 +105,8 @@ router.get("/cart", withAuth, async (req, res) => {
   }
 });
 
+router.post("/cart", withAuth, async (req, res) => {});
+
 // ----------- 'hyperlink for "login" --------------
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to the cart route
