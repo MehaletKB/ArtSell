@@ -11,8 +11,9 @@
 const addToCartButton = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const artId = event.target.getAttribute("data-id");
+
     console.log(artId);
-    const data = { artworkIds: [3] };
+    const data = { artworkIds: [`${artId}`] };
 
     const response = await fetch("http://localhost:3001/api/users/addArt/2", {
       method: "PUT",
