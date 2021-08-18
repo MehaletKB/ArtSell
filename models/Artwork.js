@@ -24,20 +24,6 @@ Artwork.init(
       isNumeric: true,
       isDecimal: true,
     },
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "user",
-    //     key: "id",
-    //   },
-    // },
-    // cartId: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: "cart",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

@@ -37,20 +37,3 @@ Cart.init(
 );
 
 module.exports = Cart;
-
-/**
- * // constrollesr/cart.js
- * roter.post("/add", ({body }, res) => {
- *  // Either create a new cart for this userId and add the
- * // artwork.
- * TODO: findOne cart where userId is the body.userId
- * // UYpdate order and push the body.artworkId
- *
- * })
- *
- * router.get("/checkout",
- * // Reduce to toal up all of the prices for STripe
- * // await stripe processing
- * // update the user with the new artwork purchaes
- * )
- */
