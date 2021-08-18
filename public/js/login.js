@@ -18,6 +18,7 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the GALLERY page
       document.location.replace("/");
     } else {
+      // eslint-disable-next-line no-alert
       alert(response.statusText);
     }
   }

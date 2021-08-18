@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
