@@ -4,6 +4,7 @@ const { Artwork, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // When the gallery loads and cycles through the artwork database, it will grab each artwork and pass it into the template
+// TODO: AUTHENTICATION
 router.get("/", async (req, res) => {
   try {
     // Get all artwork and JOIN with user data
@@ -69,19 +70,19 @@ router.get("/", async (req, res) => {
 
 // ----------------------------------------------------------
 // In Cart, we will cycle through the artwork and then display them in the cart.
-router.get("/artwork/:id", async (req, res) => {
-  // if user is logged in , track their views
+// router.get("/artwork/:id", async (req, res) => {
+//   // if user is logged in , track their views
 
-  try {
-    const artworkData = await Artwork.findByPk(req.params.id);
-    const artwork = artworkData.get({ plain: true });
-    res.render("artwork", {
-      ...artwork,
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//   try {
+//     const artworkData = await Artwork.findByPk(req.params.id);
+//     const artwork = artworkData.get({ plain: true });
+//     res.render("artwork", {
+//       ...artwork,
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // When we click on the "cart" option from the main menu, it checks to see if you are logged in. If not it re-directs you to the login page
 // Use withAuth middleware to prevent access to route
@@ -108,7 +109,7 @@ router.get("/cart", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to the cart route
   if (req.session.logged_in) {
-    res.redirect("/cart");
+    res.redirect("/");
     return;
   }
 
