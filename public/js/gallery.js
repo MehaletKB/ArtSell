@@ -8,6 +8,31 @@
 //        --- or ---
 // const artId = event.target.getAttribute("data-id");
 //  "artworkIds": [artId]
+const addToCartButton = async (event) => {
+  if (event.target.hasAttribute("data-id")) {
+    const artId = event.target.getAttribute("data-id");
+    console.log(artId);
+    const data = { artworkIds: [3] };
+
+    const response = await fetch("http://localhost:3001/api/users/addArt/2", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Sucess:", data);
+      });
+
+    if (response.ok) {
+      console.log("yes");
+    } else {
+      alert("Failed to grab post");
+    }
+  }
+};
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
@@ -25,6 +50,8 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".artwork-list")
-  .addEventListener("click", delButtonHandler);
+// document
+//   .querySelector(".artwork-list")
+//   .addEventListener("click", delButtonHandler);
+
+document.querySelector("[data-id]").addEventListener("click", addToCartButton);
