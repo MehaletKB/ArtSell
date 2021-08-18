@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Artwork extends Model {}
 
@@ -15,17 +15,20 @@ Artwork.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    artist: {
+      type: DataTypes.STRING,
+    },
     price: {
       type: DataTypes.INTEGER,
       allowNull: false,
       isNumeric: true,
-      isDecimal: true
+      isDecimal: true,
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
@@ -34,7 +37,7 @@ Artwork.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: "artwork",
   }
 );
 
