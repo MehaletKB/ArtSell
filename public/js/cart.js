@@ -45,8 +45,7 @@ checkoutBtn.addEventListener("click", () => {
       return res.json().then((json) => Promise.reject(json));
     })
     .then(({ url }) => {
-      console.log("hi");
-      // window.location = url;
+      window.location = url;
     })
     .catch((e) => {
       console.log(e);

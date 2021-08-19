@@ -58,6 +58,7 @@ nav {
 .titles {
   color: white;
   margin-left: 20px;
+  margin-bottom: 50px;
 }
 .add-button {
   margin-top: 10px;
@@ -88,6 +89,10 @@ footer {
   background-color: rgba(70, 31, 134);
   color: white;
   text-align: center;
+}
+
+.checkoutbtn {
+  margin-bottom: 100px;
 }
 
 /* header,
