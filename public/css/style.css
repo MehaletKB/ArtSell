@@ -1,10 +1,16 @@
 body {
-  background: rgb(230,210,147);
-  background: linear-gradient(180deg, rgba(230,210,147,1) 0%, rgba(44,139,180,1) 28%, rgba(52,5,57,1) 72%, rgba(19,46,81,1) 100%);
+  background: rgb(230, 210, 147);
+  background: linear-gradient(
+    180deg,
+    rgba(230, 210, 147, 1) 0%,
+    rgba(44, 139, 180, 1) 28%,
+    rgba(52, 5, 57, 1) 72%,
+    rgba(19, 46, 81, 1) 100%
   );
 }
+
 #top-logo {
-  width: 32%;
+  height: 18%;
   margin-left: 3vw;
   margin-top: -13em;
   justify-content: center;
@@ -31,13 +37,28 @@ nav {
   font-size: 150%;
   margin: 35px;
 }
+#logout {
+  font-weight: bold;
+  font-size: 150%;
+  margin: 35px;
+}
+.art-list {
+  margin-top: 50px;
+  margin-left: 20px;
+}
 .artwork {
   margin-top: 50px;
-  width: 40%;
-  display:flex;
+  width: 15%;
+  margin-left: 20px;
 }
 .titles {
   color: white;
+  margin-left: 20px;
+}
+.add-button {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 20px;
 }
 .sign-in,
 .sign-up {
@@ -49,11 +70,10 @@ nav {
   justify-content: center;
   display: flex;
   font-weight: 200%;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
-.add-button {
-  margin-top: 10px;
-  margin-bottom: 30px;
+.is-horizontal-center {
+  justify-content: center;
 }
 footer {
   position: fixed;
@@ -95,8 +115,3 @@ footer {
   width: 50px;
   height: auto;
 } */
-
-
-
-
-

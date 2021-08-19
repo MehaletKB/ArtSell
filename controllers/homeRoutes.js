@@ -1,6 +1,6 @@
 // eslint-disable-next-line new-cap
 const router = require("express").Router();
-const { Artwork, User } = require("../models");
+const { Artwork, User, Cart } = require("../models");
 const withAuth = require("../utils/auth");
 
 // When the gallery loads and cycles through the artwork database, it will grab each artwork and pass it into the template
@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
     // Pass serialized data and session flag into template
     res.render("homepage", {
       artworks,
+      userId: req.session.userId,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -83,6 +84,7 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
+// --------------------------------------------------------------------
 // When we click on the "cart" option from the main menu, it checks to see if you are logged in. If not it re-directs you to the login page
 // Use withAuth middleware to prevent access to route
 router.get("/cart", withAuth, async (req, res) => {
@@ -90,7 +92,13 @@ router.get("/cart", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Artwork }],
+      include: [{ model: Artwork, Cart }],
+      // include: [
+      //   {
+      //     model: Cart,
+      //     include: [{ model: Artwork, attributes: ["name"] }],
+      //   },
+      // ],
     });
 
     const user = userData.get({ plain: true });
@@ -103,7 +111,7 @@ router.get("/cart", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
+// --------------------------------------------------------------------
 // router.post("/cart", withAuth, async (req, res) => {});
 
 // ----------- 'hyperlink for "login" --------------

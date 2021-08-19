@@ -1,22 +1,22 @@
 <!-- Loop over each object in the projects array -->
-{{#each artworks as |artwork| }}
-<div class="artwork">
-  <div>
+<p class="userId" hidden>{{userId}}</p>
+<div class="art-list">
+  {{#each artworks as |artwork| }}
     <div>
-      <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
-    </div>
-    <h2 class="titles">
-      {{!-- <a href="/artwork/{{artwork.id}}"> --}}
-      Title: {{artwork.name}}
-      {{!-- </a> --}}
-    </h2>
-    <p class="titles">Artist Name: {{artwork.artist}}</p>
-    <p class="titles">Price: {{artwork.price}}</p>
-      <div class="col-md-4">
-        <button class="add-button" data-id="{{id}}">Add to Cart</button>
+      <div>
+        <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
       </div>
-  </div>
+      <h2 class="titles">
+        {{!-- <a href="/artwork/{{artwork.id}}"> --}}
+        Title: {{artwork.name}}
+        {{!-- </a> --}}
+      </h2>
+      <p class="titles">Artist Name: {{artwork.artist}}</p>
+      <p class="titles">Price: {{artwork.price}}</p>
+        <div class="col-md-4">
+          <button class="add-button" art-id="{{id}}">Add to Cart</button>
+        </div>
+    </div>
+  {{/each}}
 </div>
-{{/each}}
-
 <script src="/js/gallery.js"></script>

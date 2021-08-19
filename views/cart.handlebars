@@ -1,46 +1,23 @@
-{{#if posts.length}}
-  <div class="col-md-6 post-list">
-    <h3>Current Posts:</h3>
+{{! https://handlebarsjs.com/guide/block-helpers.html#block-parameters }}
 
-    {{#each posts as |post|}}
-      <div class="row mb-2">
-        <div class="col-md-8">
-          <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
-        </div>
-        <div class="col-md-4">
-          <button
-            class="btn btn-sm btn-danger"
-            data-id="{{post.id}}"
-          >DELETE</button>
-        </div>
+<h2>Welcome, {{name}}!</h2>
+
+<div class="art-list">
+  {{#each artworks as |artwork|}}
+      <div>
+        <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
       </div>
-    {{/each}}
-  </div>
-{{/if}}
-
-{{! TODO: Create a "total" value }}
-<div class="total">
-
+    <h4 class="titles name-{{id}}">{{name}}</h4>
+    <h4 class="titles price-{{id}}">{{price}}</h4>
+  {{/each}}
 </div>
 
-{{! TODO: Create a "Submit Order" button }}
-<div class="col-md-4">
-  <a href="/receipt"><button
-      id="checkout-button"
-      class="btn btn-sm btn-danger"
-      data-id="{{post.id}}"
-    >Submit Order</button></a>
-</div>
+<p class="total titles"></p>
 
-<div class="btn submit order">
+<p class="storeItems titles"></p>
+
+<div class="btn submitOrder titles">
   <a href="/receipt">Submit Order</a>
 </div>
 
 <script src="/js/cart.js"></script>
---}}
-
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
