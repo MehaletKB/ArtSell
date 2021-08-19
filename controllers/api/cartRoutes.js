@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 router.post("/checkout", async (req, res) => {
   try {
     const art = req.body.storeItems;
-    console.log(art);
+    console.log(art[0][1].priceInCents);
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
@@ -35,7 +35,7 @@ router.post("/checkout", async (req, res) => {
         quantity: 1,
       })),
       success_url: "http://localhost3001/",
-      cancel_url: "http://localhost3001/cart",
+      cancel_url: "http://localhost3001/",
     });
     res.json({ url: session.url });
   } catch (e) {
