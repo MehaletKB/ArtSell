@@ -23,6 +23,7 @@
 //           console.log(err)
 //         };
 //     });
+const storeItems = [];
 
 function init() {
   generateStoreItems();
@@ -30,8 +31,29 @@ function init() {
 
 init();
 
+const checkoutBtn = document.querySelector(".submitOrder");
+checkoutBtn.addEventListener("click", () => {
+  fetch("/api/carts/checkout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ storeItems }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+      return res.json().then((json) => Promise.reject(json));
+    })
+    .then(({ url }) => {
+      console.log("hi");
+      // window.location = url;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+});
+
 function generateStoreItems() {
-  const storeItems = [];
   let total = 0;
   for (let i = 1; i < 7; i++) {
     if (document.querySelector(`.name-${i}`)) {

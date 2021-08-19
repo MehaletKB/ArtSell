@@ -2,6 +2,7 @@
 // eslint-disable-next-line new-cap
 const router = require("express").Router();
 const { Cart } = require("../../models");
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 router.post("/", async (req, res) => {
   try {
@@ -13,6 +14,32 @@ router.post("/", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err.message);
+  }
+});
+
+router.post("/checkout", async (req, res) => {
+  try {
+    const art = req.body.storeItems;
+    console.log(art);
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      line_items: art.map((item) => ({
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: item.priceInCents,
+        },
+        quantity: 1,
+      })),
+      success_url: `${process.env.SERVER_URL}/success.html`,
+      cancel_url: `${process.env.SERVER_URL}/cancel.html`,
+    });
+    res.json({ url: session.url });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 
