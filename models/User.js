@@ -16,11 +16,9 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      isAlphanumeric: true,
-      unique: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -34,7 +32,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: /^[0-9a-f]{30}$/i,
+        len: [6],
       },
     },
   },

@@ -1,0 +1,24 @@
+{{! https://handlebarsjs.com/guide/block-helpers.html#block-parameters }}
+
+<h2>Welcome, {{name}}!</h2>
+
+<div class="art-list">
+  {{#each artworks as |artwork|}}
+      <div>
+        <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
+      </div>
+    <h4 class="titles name-{{id}}">{{name}}</h4>
+    <h4 class="titles price-{{id}}">{{price}}</h4>
+  {{/each}}
+</div>
+<div class="btn submitOrder titles">
+  <a class="checkoutbtn" >Submit Order</a>
+</div>
+
+<p hidden class="total titles"></p>
+
+<p hidden class="storeItems titles"></p>
+
+
+
+<script src="/js/cart.js"></script>

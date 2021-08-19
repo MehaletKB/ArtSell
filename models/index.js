@@ -1,9 +1,15 @@
 const User = require("./User");
 const Artwork = require("./Artwork");
+const Cart = require("./Cart");
 
-Artwork.belongsTo(User, {
-  foreignKey: "user_id",
-  // onDelete: 'CASCADE'
+Artwork.belongsToMany(User, {
+  foreignKey: "artworkId",
+  through: Cart,
 });
 
-module.exports = { User, Artwork };
+User.belongsToMany(Artwork, {
+  foreignKey: "userId",
+  through: Cart,
+});
+
+module.exports = { User, Artwork, Cart };

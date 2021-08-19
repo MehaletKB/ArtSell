@@ -1,7 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtSell</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="rectangle"></div>
+      <div class="header">
+        <img src="/assets/Artsell-logo.png" id="top-logo" />
+        <h1 id="tag">Small Artists - Big Artistry</h1>
+      </div>
+      <nav>
+        <a href="/" class="navlnx">Gallery</a>
+        |
+        <!-- Conditionally render login or logout links -->
+        {{#if loggedIn}}
+          <a href="/cart" class="navlnx">Cart</a>
+          |
+          <a class="no-button" id="logout" class="navlnx">Logout</a>
+        {{else}}
+          <a href="/login" class="navlnx">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      <!-- Render the sub layout -->
 
-const button = document.getElementById("checkout-button");
-button.addEventListener("click", () => { fetch("/cart", { method: "POST",
-headers: { "Content-Type": "application/json", }, // cart is an array of numbers
-from localstorage body: JSON.stringify({cart, user}), }) .then((res) => { if
-(res.status(200)) return res.json(); }) .then(({ url }) => { window.location =
-url; }) .catch(err) { console.log(err) }; });
+      {{{body}}}
+
+    </main>
+    <footer>
+      <p>Built with love, stress, sleeplessness and tears by Dan, Tyler &
+        Mehalet
+      </p>
+    </footer>
+    <!-- Render script for logged in users only -->
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
+</html>
