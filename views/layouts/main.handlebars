@@ -1,46 +1,52 @@
-<!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ArtSell</title>
-
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <img src="/assets/Artsell-logo.png"></img>
-        <a href="/">ArtSell</a>
-      </h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtSell</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="rectangle"></div>
+      <div class="header">
+        <img src="/assets/Artsell-logo.png" id="top-logo" />
+        <h1 id="tag">Small Artists - Big Artistry</h1>
+      </div>
       <nav>
-        <a href="/">Gallery</a> |
+        <a href="/" class="navlnx">Gallery</a>
+        |
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/cart">Cart</a> |
-        <button class="no-button" id="logout">Logout</button>
+        {{#if loggedIn}}
+          <a href="/cart" class="navlnx">Cart</a>
+          |
+          <button class="no-button" id="logout" class="navlnx">Logout</button>
         {{else}}
-        <a href="/login">Login</a>
+          <a href="/login" class="navlnx">Login</a>
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+    <main>
       <!-- Render the sub layout -->
-      {{{ body }}}
+      <div>
+        {{{body}}}
+      </div>
     </main>
     <footer>
-
+      <p>Built with love, stress, sleeplessness and tears by Dan, Tyler &
+        Mehalet
+      </p>
     </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 </html>

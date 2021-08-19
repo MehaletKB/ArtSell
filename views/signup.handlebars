@@ -1,7 +1,6 @@
-<div class="row">
+{{! <div class="row">
   <div class="col-md-6">
     <h2>Signup</h2>
-
     <form class="form signup-form">
       <div class="form-group">
         <label for="name-signup">name:</label>
@@ -20,6 +19,63 @@
       </div>
     </form>
   </div>
-</div>
-
+</div> }}
+<section class="section form signup-form sign-up">
+  <div class="container">
+    <h2 id="signup-text" class="is-centered">Please enter your information to
+      sign up:</h2>
+    <div class="field columns is-centered">
+      <p class="control has-icons-left has-icons-right column is-half">
+        <input
+          class="input"
+          id="name-signup"
+          type="text"
+          placeholder="Username"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field columns is-centered">
+      <p class="control has-icons-left has-icons-right column is-half">
+        <input
+          class="input"
+          id="email-signup"
+          type="email"
+          placeholder="Email"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field columns is-centered">
+      <p class="control has-icons-left column is-half">
+        <input
+          class="input"
+          id="password-signup"
+          type="password"
+          placeholder="Password"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field columns is-centered">
+      <p class="control">
+        <button class="button has-background-dark sign-up" type="submit">
+          <a href="/signup" class="has-text-white">Signup</a>
+        </button>
+      </p>
+    </div>
+  </div>
+</section>
 <script src="./js/signup.js"></script>

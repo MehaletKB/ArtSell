@@ -1,35 +1,102 @@
-header,
+body {
+  background: rgb(230,210,147);
+  background: linear-gradient(180deg, rgba(230,210,147,1) 0%, rgba(44,139,180,1) 28%, rgba(52,5,57,1) 72%, rgba(19,46,81,1) 100%);
+  );
+}
+#top-logo {
+  width: 32%;
+  margin-left: 3vw;
+  margin-top: -13em;
+  justify-content: center;
+}
+.rectangle {
+  height: 12em;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.397);
+  z-index: -1;
+}
+#tag {
+  font-size: 350%;
+  font-family: "Century Gothic";
+  margin-top: -3em;
+  margin-left: 12em;
+}
+nav {
+  color: white;
+  margin-top: -3em;
+  margin-left: 50em;
+}
+.navlnx {
+  font-weight: bold;
+  font-size: 150%;
+  margin: 35px;
+}
+.artwork {
+  margin-top: 50px;
+  width: 40%;
+  display:flex;
+}
+.titles {
+  color: white;
+}
+.sign-in,
+.sign-up {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+#signup-text {
+  color: white;
+  justify-content: center;
+  display: flex;
+  font-weight: 200%;
+  /* margin-bottom: 20px; */
+}
+.add-button {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(70, 31, 134);
+  color: white;
+  text-align: center;
+  /* margin-top: 10em; */
+}
+/* header,
 .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
-
 .no-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #1B89BC;
   text-decoration: none;
   font-size: 100%;
 }
-
 .no-button:hover {
-  color: #065b83;
+  color: #065B83;
   text-decoration: underline;
 }
-
 .dollar-amount {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
 }
-
 .logoImg {
   height: 20px;
   width: auto;
 }
-
 .artImg {
-  width: 100px;
+  width: 50px;
   height: auto;
-}
+} */
+
+
+
+
+
