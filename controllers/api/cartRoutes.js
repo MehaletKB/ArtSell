@@ -34,8 +34,8 @@ router.post("/checkout", async (req, res) => {
         },
         quantity: 1,
       })),
-      success_url: "http://localhost3001/",
-      cancel_url: "http://localhost3001/",
+      success_url: "http://localhost:3001/",
+      cancel_url: "http://localhost:3001/",
     });
     res.json({ url: session.url });
   } catch (e) {
