@@ -24,6 +24,7 @@ body {
   margin-top: -3em;
   margin-left: 12em;
 }
+
 nav {
   color: white;
   margin-top: -3em;
@@ -38,14 +39,19 @@ nav {
 
 .artwork {
   margin-top: 50px;
-  width: 15%;
-  display:flex;
-
-
+  width: 75%;
+  margin-left: 20px
 }
 
 .titles {
   color: white;
+  margin-left: 20px
+}
+
+.add-button {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 20px
 }
 
 .sign-in,
@@ -59,12 +65,12 @@ nav {
   justify-content: center;
   display: flex;
   font-weight: 200%;
-  margin-bottom: 10px;
+  /* margin-bottom: 20px; */
 }
 
-.add-button {
-  margin-top: 10px;
-  margin-bottom: 30px;
+
+.is-horizontal-center {
+  justify-content: center;
 }
 
 footer {

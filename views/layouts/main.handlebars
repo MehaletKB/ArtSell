@@ -27,7 +27,7 @@
         <a href="/" class="navlnx">Gallery</a>
         |
         <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
+        {{#if loggedIn}}
           <a href="/cart" class="navlnx">Cart</a>
           |
           <button class="no-button" id="logout" class="navlnx">Logout</button>
@@ -39,7 +39,12 @@
 
     <main>
       <!-- Render the sub layout -->
-      {{{body}}}
+      <div class="columns is-flex is-centered art-display">
+
+        {{{body}}}
+
+      </div>
+
     </main>
     <footer>
       <p>Built with love, stress, sleeplessness and tears by Dan, Tyler &

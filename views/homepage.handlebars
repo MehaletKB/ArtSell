@@ -1,17 +1,17 @@
 <!-- Loop over each object in the projects array -->
 {{#each artworks as |artwork| }}
-<div class="columns">
-  <div class="column">
-
+<div class="artwork">
+  <div>
+    <div>
       <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
-
+    </div>
     <h2 class="titles">
       {{!-- <a href="/artwork/{{artwork.id}}"> --}}
       Title: {{artwork.name}}
       {{!-- </a> --}}
     </h2>
     <p class="titles">Artist Name: {{artwork.artist}}</p>
-    <p class="titles">Price: {{artwork.price}}</p>
+    <p class="titles">Price: {{artwork.price}} monies</p>
       <div class="col-md-4">
         <button class="add-button" data-id="{{artwork.id}}">Add to Cart</button>
       </div>
