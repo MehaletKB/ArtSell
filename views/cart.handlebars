@@ -1,36 +1,22 @@
-<!-- Loop over each object in the kart array -->
+{{! https://handlebarsjs.com/guide/block-helpers.html#block-parameters }}
 
-{{!-- REPLACE "artworks" with "karts" --}}
-{{#each artworks as |artwork| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      {{!-- <a href="/artwork/{{artwork.id}}"> --}}
-      {{artwork.name}}
-      {{!-- </a> --}}
-    </h2>
-    <img src="../Assets/{{artwork.name}}"> </img>
-    <p>Artist Name: {{artwork.artist}}</p>
-    <p>Price: {{artwork.price}}</p>
-{{!-- <p>Quantity: {{artwork.price}}</p> --}}
-  </div>
-    <div class="col-md-4">
-      <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-    </div>
-</div>
-{{/each}}
+<h2>Welcome, {{name}}!</h2>
 
-{{!-- TODO: Create a "total" value --}}
-<div class="total">
-
+<div class="art-list">
+  {{#each artworks as |artwork|}}
+      <div>
+        <img src="/assets/{{artwork.name}}.jpg" class="artwork"> </img>
+      </div>
+    <h4 class="titles name-{{id}}">{{name}}</h4>
+    <h4 class="titles price-{{id}}">{{price}}</h4>
+  {{/each}}
 </div>
 
-{{!-- TODO: Create a "Submit Order" button --}}
-<div class="col-md-4">
-  <a href="/receipt"><button id= "checkout-button" class="btn btn-sm btn-danger" data-id="{{post.id}}">Submit Order</button></a>
-</div>
+<p class="total titles"></p>
 
-<div class="btn submit order">
+<p class="storeItems titles"></p>
+
+<div class="btn submitOrder titles">
   <a href="/receipt">Submit Order</a>
 </div>
 

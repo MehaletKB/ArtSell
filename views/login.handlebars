@@ -1,7 +1,6 @@
-<div class="row">
+{{! <div class="row">
   <div class="col-md-6">
     <h2>Login</h2>
-
     <form class="form login-form">
       <div class="form-group">
         <label for="email-login">email:</label>
@@ -15,10 +14,59 @@
         <button class="btn btn-primary" type="submit">login</button>
       </div>
     </form>
-  </div>
+  </div>password-login
 </div>
 <div>
   <a href="/signup">Signup</a>
-</div>
-
+</div> }}
+<form class="section form login-form sign-in">
+  <div class="container form-group">
+    <div class="field columns is-centered">
+      <p class="control has-icons-left has-icons-right column is-half">
+        <input
+          class="input"
+          id="email-login"
+          type="email"
+          placeholder="Email"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field columns is-centered form-group">
+      <p class="control has-icons-left column is-half">
+        <input
+          class="input"
+          id="password-login"
+          type="password"
+          placeholder="Password"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field columns is-centered form-group">
+      <p class="control">
+        <button class="button is-success sign-in submit" type="submit">
+          Login
+        </button>
+      </p>
+    </div>
+    <div class="field columns is-centered form-group">
+      <p class="control">
+        <button
+          class="button has-background-dark sign-up signup-form"
+          type="submit"
+        >
+          <a href="/signup" class="has-text-white">Signup</a>
+        </button>
+      </p>
+    </div>
+  </div>
+</form>
 <script src="./js/login.js"></script>

@@ -22,52 +22,53 @@ router.post("/", async (req, res) => {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.logged_in = true;
+      req.session.userId = userData.id;
+      req.session.loggedIn = true;
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err.message);
+    res.status(400).json(err);
   }
 });
 
-router.put("/:id", (req, res) => {
-  // update product data
-  User.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-    // .then((user) =>
-    .then(() =>
-      // find all associated tags from ProductTag
-      Cart.findAll({ where: { userId: req.params.id } })
-    )
-    .then((carts) => {
-      // get list of current tag_ids
-      const cartIds = carts.map(({ artworkId }) => artworkId);
-      // create filtered list of new tag_ids
-      const newCarts = req.body.artworkIds
-        .filter((artworkId) => !cartIds.includes(artworkId))
-        .map((artworkId) => ({
-          userId: req.params.id,
-          artworkId,
-        }));
-      // figure out which ones to remove
-      const cartsToRemove = carts
-        .filter(({ artworkId }) => !req.body.artworkIds.includes(artworkId))
-        .map(({ id }) => id);
+// router.put("/:id", (req, res) => {
+//   // update product data
+//   User.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     // .then((user) =>
+//     .then(() =>
+//       // find all associated tags from ProductTag
+//       Cart.findAll({ where: { userId: req.params.id } })
+//     )
+//     .then((carts) => {
+//       // get list of current tag_ids
+//       const cartIds = carts.map(({ artworkId }) => artworkId);
+//       // create filtered list of new tag_ids
+//       const newCarts = req.body.artworkIds
+//         .filter((artworkId) => !cartIds.includes(artworkId))
+//         .map((artworkId) => ({
+//           userId: req.params.id,
+//           artworkId,
+//         }));
+//       // figure out which ones to remove
+//       const cartsToRemove = carts
+//         .filter(({ artworkId }) => !req.body.artworkIds.includes(artworkId))
+//         .map(({ id }) => id);
 
-      // run both actions
-      return Promise.all([
-        Cart.destroy({ where: { id: cartsToRemove } }),
-        Cart.bulkCreate(newCarts),
-      ]);
-    })
-    .then((updatedCarts) => res.json(updatedCarts))
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
+//       // run both actions
+//       return Promise.all([
+//         Cart.destroy({ where: { id: cartsToRemove } }),
+//         Cart.bulkCreate(newCarts),
+//       ]);
+//     })
+//     .then((updatedCarts) => res.json(updatedCarts))
+//     .catch((err) => {
+//       res.status(400).json(err);
+//     });
+// });
 
 // TODO: "":id" is the userId, pass through a hidden field called "artworkIds" which references the artwork id to be added. looks like this (user 1 adds art 6):
 // http://localhost:3001/api/users/addArt/1
@@ -165,8 +166,8 @@ router.post("/login", async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.userId = userData.id;
+      req.session.loggedIn = true;
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
@@ -176,7 +177,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
