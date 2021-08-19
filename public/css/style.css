@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: rgb(230, 210, 147);
   background: linear-gradient(
@@ -43,13 +47,13 @@ nav {
   margin: 35px;
 }
 .art-list {
-  margin-top: 50px;
-  margin-left: 20px;
+  margin: 60px;
+  display: flex;
 }
 .artwork {
-  margin-top: 50px;
-  width: 15%;
-  margin-left: 20px;
+  width: 20rem;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .titles {
   color: white;
@@ -60,6 +64,7 @@ nav {
   margin-bottom: 30px;
   margin-left: 20px;
 }
+
 .sign-in,
 .sign-up {
   margin-top: 1rem;
@@ -83,8 +88,8 @@ footer {
   background-color: rgba(70, 31, 134);
   color: white;
   text-align: center;
-  /* margin-top: 10em; */
 }
+
 /* header,
 .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
