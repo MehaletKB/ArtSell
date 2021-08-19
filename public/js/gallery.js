@@ -11,16 +11,19 @@
 const addToCartButton = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const artId = event.target.getAttribute("data-id");
-    console.log(artId);
-    const data = { artworkIds: [3] };
+    const data = { artworkIds: [artId] };
+    console.log(window.sessionStorage);
 
-    const response = await fetch("http://localhost:3001/api/users/addArt/2", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    const response = await fetch(
+      `http://localhost:3001/api/users/addArt/${userId}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log("Sucess:", data);
@@ -54,4 +57,6 @@ const delButtonHandler = async (event) => {
 //   .querySelector(".artwork-list")
 //   .addEventListener("click", delButtonHandler);
 
-document.querySelector("[data-id]").addEventListener("click", addToCartButton);
+document
+  .querySelector(".add-button")
+  .addEventListener("click", addToCartButton);

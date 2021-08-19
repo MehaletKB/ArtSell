@@ -4,7 +4,6 @@ const { Artwork, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // When the gallery loads and cycles through the artwork database, it will grab each artwork and pass it into the template
-// TODO: AUTHENTICATION
 router.get("/", async (req, res) => {
   try {
     // Get all artwork and JOIN with user data
