@@ -24,13 +24,6 @@ Artwork.init(
       isNumeric: true,
       isDecimal: true,
     },
-    userId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
   },
   {
     sequelize,
