@@ -29,7 +29,7 @@ Must install the following node package managers:
 ## Usage:
 
 From the terminal: ender npm start to run the server.
-From a browser: navigate to http://localhost:3001 ro
+From a browser: navigate to http://localhost:3001
 
 ## Link:
 
